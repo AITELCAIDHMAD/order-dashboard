@@ -3,10 +3,10 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactNode } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ordersApi } from '../features/order-feature/api/orders';
+import { ordersApi } from '../features/order-feature/api/orders-api';
 import { OrderDashboard } from '../features/order-feature/components/OrderDashboard';
 
-vi.mock('../api/orders');
+vi.mock('../features/order-feature/api/orders-api');
 
 const mockOrders = [
   {

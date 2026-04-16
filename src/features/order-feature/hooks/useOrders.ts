@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
+import { ordersApi } from "../api/orders-api";
 import type {
   Order,
   OrderFilters,
   OrdersResponse,
   OrderStatus,
-} from "../../../types/order";
-import { ordersApi } from "../api/orders";
+} from "../types/order";
 
 interface UseOrdersState {
   orders: Order[];

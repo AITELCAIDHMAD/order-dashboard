@@ -1,91 +1,60 @@
 # My Philosphy & stack used
 
-- I focus on projects struture each
+- I focus on project structure: each feature has its own folder, and whatever it uses—components, hooks, store—should be in the same folder for easy debugging and maintenance (Single Responsibility + KISS).
+
+- I use Zustand as state management because it's simple, lightweight, and has no boilerplate like Redux.
+- I use TailwindCSS for styles.
+- I use either Ant Design, shadcdn, or Material UI for UI (whichever supports accessibility by default).
+- I use React Query for fetching APIs because it can retry, cache, etc.
+- React Hook Form - For form handling.
+- Zod - For form validation.
+- Lazy loading with React.lazy and Suspense.
+- Routing using react-router-dom.
+- Notifications via react-toastify.
+- Dark Mode.
+- Mobile Friendly: It works on mobile as well.
+- Accessibility using ARIA attributes: aria-label, alt, etc.
+- Each component or function should do only one thing (Single Responsibility Principle - SRP).
+- Lazy loading the pages so each route, e.g. /order, will be bundled separately to avoid a huge bundle size.
+
+Instead of:
+
+├── components/
+├── pages/
+├── hooks/
+├── utils/
+
+I use
+
+├── src/
+│ ├── features/
+│ │ ├── order-feature/
+│ │ │ ├── components/
+│ │ │ ├── hooks/
+│ │ │ ├── services/
+│ │ │ ├── store/
+│ │ │ ├── pages/
+│ │ │ └── index.js
+│ │ └── setting-feature/
+│ │ ├── components/
+│ │ ├── hooks/
+│ │ ├── services/
+│ │ ├── store/
+│ │ ├── pages/
+│ │ └── index.js
+│ ├── shared/
+│ │ ├── components/
+│ │ │ ├── Button/
+│ │ │ └── Modal/
+│ │ ├── hooks/
+│ │ ├── utils/
+│ │ └── constants/
+│ ├── pages/
+│ ├── index.js
 
 # Tapin Order Dashboard
 
 A modern, real-time order management dashboard for venue operators built with React, TypeScript, and Ant Design.
-
-## Overview
-
-This project is a technical assessment demonstrating production-grade React development with proper component architecture, TypeScript patterns, state management, and testing practices.
-
-## Features
-
-### Part 1: Component Architecture ✅
-
-- **OrderDashboard**: Main container component managing global state and layout
-- **FilterBar**: Status filter dropdown with refresh functionality
-- **OrderCard**: Individual order display with status management
-- Clean separation of concerns with proper prop drilling and type safety
-- Loading, empty, and error states handled throughout
-- Responsive grid layout using Ant Design's Grid system
-
-### Part 2: State & Data Flow ✅
-
-- **Custom Hook (`useOrders`)**: Encapsulates all data fetching and mutation logic
-  - Automatic data fetching on mount and filter changes
-  - Optimistic UI updates for status changes
-  - Rollback mechanism on API failure
-  - Centralized error handling
-- **Type Safety**: End-to-end TypeScript with strict typing
-  - API contract types (`Order`, `OrderStatus`, `OrdersResponse`)
-  - Component prop interfaces
-  - Hook return types
-  - No `any` types used
-
-### Part 3: Testing ✅ (Option B)
-
-- **Testing Framework**: Vitest with React Testing Library
-- **Hook Tests** (`useOrders.test.ts`):
-  - Initial data fetching
-  - Filter state management
-  - Optimistic updates with success case
-  - Rollback on failure (most important test)
-  - Error handling
-- **Component Tests** (`OrderDashboard.test.tsx`):
-  - Rendering with data
-  - Statistics display
-  - Status filtering
-  - Empty states
-  - Error states
-- **Mocking**: API layer mocked to test business logic in isolation
-
-## Tech Stack
-
-- **React 19** with TypeScript 6
-- **Vite 8** for fast development and building
-- **Ant Design** for UI components
-- **Tailwind CSS v3** for utility-first styling
-- **Zustand** for global state management
-- **React Query (TanStack Query)** for server state & API calls
-- **date-fns** for date formatting
-- **react-tooltip** for accessible tooltips
-- **Vitest** + React Testing Library for testing
-
-## Project Structure
-
-```
-src/
-├── api/
-│   └── orders.ts           # Mock API implementation
-├── components/
-│   ├── OrderDashboard.tsx  # Main dashboard container
-│   ├── OrderCard.tsx       # Individual order card
-│   └── FilterBar.tsx       # Filter controls
-├── hooks/
-│   └── useOrdersQuery.ts   # React Query hooks for API calls
-├── store/
-│   └── orderFiltersStore.ts # Zustand store for filter state
-├── types/
-│   └── order.ts            # TypeScript interfaces
-└── test/
-    ├── setup.ts
-    ├── useOrdersQuery.test.tsx
-    └── OrderDashboard.test.tsx
-```
-
-## Getting Started
 
 ### Installation
 
@@ -338,17 +307,6 @@ All fields match the spec:
 6. **No Request Cancellation**: Stale requests aren't aborted when filters change
 7. **CSS Framework Mixing**: Using both Tailwind and Ant Design styles (generally pick one)
 
-## Time Breakdown
-
-- Setup (Vite, dependencies, config): ~5 min
-- Types & API layer: ~8 min
-- `useOrders` hook: ~10 min
-- Components (Dashboard, Card, FilterBar): ~20 min
-- Testing setup & tests: ~12 min
-- README & documentation: ~5 min
-
-**Total**: ~60 minutes
-
 ## Questions for the Team
 
 1. **Real-time Updates**: What's the expected latency for order updates? Should we use WebSocket, SSE, or polling?
@@ -363,7 +321,7 @@ Built for Tapin's React Technical Assessment
 
 ---
 
-**Note**: This is assessment code. In production, I would add:
+**Note**: In production, I would add:
 
 - More comprehensive error boundaries
 - Structured logging (Sentry, LogRocket)

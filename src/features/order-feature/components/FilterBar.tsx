@@ -1,6 +1,6 @@
 import { ReloadOutlined } from '@ant-design/icons';
 import { Button, Select } from 'antd';
-import type { OrderStatus } from '../../../types/order';
+import type { OrderStatus } from '../types/order';
 
 interface FilterBarProps {
   selectedStatus?: OrderStatus;

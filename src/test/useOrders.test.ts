@@ -1,9 +1,9 @@
 import { renderHook } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { ordersApi } from "../features/order-feature/api/orders";
+import { ordersApi } from "../features/order-feature/api/orders-api";
 import { useOrders } from "../features/order-feature/hooks/useOrders";
 
-vi.mock("../api/orders");
+vi.mock("../features/order-feature/api/orders-api");
 
 const mockOrdersResponse = {
   orders: [

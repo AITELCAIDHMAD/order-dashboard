@@ -2,7 +2,7 @@ import { Button, Card, Space, Tag, message } from 'antd';
 import { formatDistanceToNow } from 'date-fns';
 import { useState } from 'react';
 import { Tooltip } from 'react-tooltip';
-import type { Order, OrderStatus } from '../../../types/order';
+import type { Order, OrderStatus } from '../types/order';
 
 interface OrderCardProps {
   order: Order;

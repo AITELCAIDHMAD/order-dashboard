@@ -5,7 +5,6 @@ import type { OrderStatus } from '../types/order';
 import { FilterBar } from './FilterBar';
 import { OrderCard } from './OrderCard';
 
-//hi
 
 export const OrderDashboard: React.FC = () => {
   const { status, setStatus } = useOrderFiltersStore();

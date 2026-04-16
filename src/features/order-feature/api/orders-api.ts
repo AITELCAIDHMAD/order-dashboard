@@ -3,7 +3,7 @@ import type {
   OrdersResponse,
   OrderStatus,
   UpdateOrderStatusRequest,
-} from "../../../types/order";
+} from "../types/order";
 
 const MOCK_ORDERS: Order[] = [
   {
