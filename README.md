@@ -19,12 +19,16 @@
 
 Instead of:
 
+```
 ├── components/
 ├── pages/
 ├── hooks/
 ├── utils/
+```
 
 I use
+
+```
 
 ├── src/
 │ ├── features/
@@ -51,6 +55,8 @@ I use
 │ │ └── constants/
 │ ├── pages/
 │ ├── index.js
+
+```
 
 # Tapin Order Dashboard
 
